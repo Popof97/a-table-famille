@@ -3,6 +3,6 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "build": "node -e \"console.log('À table ! prêt à publier')\""
+    "build": "node build.mjs"
   }
 }
