@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2e6b4c">
+  <title>À table ! — planning repas familial</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="weekend.css">
+  <link rel="stylesheet" href="recipes.css">
+  <link rel="stylesheet" href="calendar-refresh.css">
+  <link rel="stylesheet" href="recipe-editor.css">
+  <link rel="stylesheet" href="planner-editor.css">
+  <link rel="stylesheet" href="recipe-search.css">
+  <link rel="stylesheet" href="calendar-navigation.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#semaine" aria-label="À table, accueil"><span class="brand-mark">🍽</span><span>À table !</span></a>
+      <nav aria-label="Navigation principale">
+        <a href="#semaine" class="nav-link active" data-view="semaine">Semaine</a>
+        <a href="#recettes" class="nav-link" data-view="recettes">Recettes</a>
+        <a href="#courses" class="nav-link" data-view="courses">Courses & budget</a>
+      </nav>
+      <button class="icon-button" id="settings-button" aria-label="Préférences">⚙</button>
+    </header>
+
+    <main>
+      <section class="view active" id="semaine" aria-labelledby="week-title">
+        <div class="page-head">
+          <div><p class="eyebrow">Semaine à venir</p><h1 id="week-title">Du 29 juillet au 4 août</h1></div>
+          <div class="page-actions"><button class="button" id="generate-week">Générer ma semaine</button><button class="button primary" id="add-meal">+ Ajouter un repas</button></div>
+        </div>
+        <div class="summary-grid">
+          <article class="summary-card budget"><p>Budget de la semaine</p><strong><span id="budget-total">146</span> € <small>/ 170 €</small></strong><div class="progress"><span id="budget-bar"></span></div><small id="budget-left">24 € de marge</small></article>
+          <article class="summary-card"><p>Restes à utiliser</p><strong id="leftover-count">3 portions</strong><small>Lasagnes · mercredi midi</small></article>
+          <article class="summary-card"><p>Prochain repère</p><strong>Courses vendredi</strong><small>Liste prête pour Maman</small></article>
+        </div>
+        <section class="planner-card" aria-label="Planning des repas">
+          <div class="planner-note">Clique sur <b>Papa</b> ou <b>Liam</b> pour modifier le midi d’une journée. Les portions se mettent à jour.</div>
+          <div class="week-grid" id="week-grid"></div>
+        </section>
+      </section>
+
+      <section class="view" id="recettes" aria-labelledby="recipes-title">
+        <div class="page-head"><div><p class="eyebrow">Votre base familiale</p><h1 id="recipes-title">Recettes</h1><p class="muted">Des plats doux, économiques et adaptés aux gamelles.</p></div><button class="button primary" id="new-recipe">+ Nouvelle recette</button></div>
+        <div class="filter-row"><button class="chip selected" data-filter="all">Toutes</button><button class="chip" data-filter="xxl">XXL & restes</button><button class="chip" data-filter="rapide">Rapides</button><button class="chip" data-filter="gamelle">Gamelles</button></div>
+        <div class="recipe-grid" id="recipe-grid"></div>
+      </section>
+
+      <section class="view" id="courses" aria-labelledby="shopping-title">
+        <div class="page-head"><div><p class="eyebrow">Vendredi</p><h1 id="shopping-title">Courses & budget</h1><p class="muted">Liste calculée à partir de la semaine prévue.</p></div><button class="button" id="reset-shopping">Décocher la liste</button></div>
+        <div class="shopping-layout"><section class="shopping-card"><h2>Liste de courses</h2><div id="shopping-list"></div></section><aside class="budget-panel"><p>Budget plafond</p><strong>170 €</strong><hr><p>Repas planifiés</p><strong id="planned-budget">125 €</strong><p>Petit-déjeuner, goûters et quotidien</p><strong>21 €</strong><hr><p>Prévision totale</p><strong class="total" id="full-budget">146 €</strong><small>Les prix pourront être ajustés après le ticket de caisse.</small></aside></div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="meal-dialog"><form method="dialog" id="meal-form"><button class="dialog-close" value="cancel" aria-label="Fermer">×</button><p class="eyebrow">Planifier un repas</p><h2>Choisir une recette</h2><label>Jour<select id="meal-day"></select></label><label>Moment<select id="meal-slot"><option value="midi">Midi</option><option value="soir">Soir</option></select></label><label>Recette<select id="meal-recipe"></select></label><div class="dialog-actions"><button class="button" value="cancel">Annuler</button><button class="button primary" value="default" id="save-meal">Ajouter</button></div></form></dialog>
+  <dialog id="recipe-dialog"><form method="dialog" id="recipe-form"><button class="dialog-close" value="cancel" aria-label="Fermer">×</button><p class="eyebrow">Nouvelle recette</p><h2>Un plat pour la famille</h2><label>Nom<input required id="recipe-name" placeholder="Ex. gratin de pâtes"></label><label>Coût estimé (€)<input required id="recipe-price" type="number" min="0" step="0.5" value="10"></label><label>Temps (minutes)<input required id="recipe-time" type="number" min="5" value="35"></label><label>Catégorie<select id="recipe-tag"><option value="xxl">XXL & restes</option><option value="rapide">Rapide</option><option value="gamelle">Gamelle</option></select></label><div class="dialog-actions"><button class="button" value="cancel">Annuler</button><button class="button primary" value="default">Créer</button></div></form></dialog>
+  <script src="app.js"></script>
+  <script src="generator.js"></script>
+  <script src="recipe-editor.js"></script>
+  <script src="planner-editor.js"></script>
+  <script src="recipe-search.js"></script>
+  <script src="pleasure-recipes.js"></script>
+  <script src="calendar-navigation.js"></script>
+</body>
+</html>

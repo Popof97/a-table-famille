@@ -1,0 +1,13 @@
+.week-grid {
+  grid-template-columns: repeat(7, minmax(165px, 1fr));
+}
+
+.day-column {
+  min-width: 165px;
+}
+
+@media (max-width: 760px) {
+  .week-grid {
+    grid-template-columns: repeat(7, 190px);
+  }
+}

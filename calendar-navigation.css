@@ -1,0 +1,1 @@
+.calendar-controls{display:flex;gap:8px;flex-wrap:wrap}.day-column.today{outline:3px solid #f0b75b;outline-offset:2px}.day-column.today .day-head:after{content:'Aujourd’hui';display:block;margin-top:3px;font-size:11px;color:#fff3d4;font-weight:700}@media(max-width:760px){.calendar-controls{width:100%}}

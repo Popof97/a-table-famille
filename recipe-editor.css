@@ -1,0 +1,1 @@
+.recipe-card{cursor:pointer}.recipe-card:hover{transform:translateY(-2px);box-shadow:0 8px 18px #17342019}.recipe-card{transition:transform .16s ease,box-shadow .16s ease}.recipe-card:focus-within{outline:2px solid var(--green)}textarea.form-control{width:100%;margin-top:5px;padding:10px;border:1px solid var(--line);border-radius:8px;font:inherit;resize:vertical}
