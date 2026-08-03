@@ -47,7 +47,7 @@
 
       <section class="view" id="recettes" aria-labelledby="recipes-title">
         <div class="page-head"><div><p class="eyebrow">Votre base familiale</p><h1 id="recipes-title">Recettes</h1><p class="muted">Des plats doux, économiques et adaptés aux gamelles.</p></div><button class="button primary" id="new-recipe">+ Nouvelle recette</button></div>
-        <div class="filter-row"><button class="chip selected" data-filter="all">Toutes</button><button class="chip" data-filter="xxl">XXL & restes</button><button class="chip" data-filter="rapide">Rapides</button><button class="chip" data-filter="gamelle">Gamelles</button></div>
+        <div class="filter-row"><button class="chip selected" data-filter="all">Toutes</button><button class="chip" data-filter="xxl">XXL & restes</button><button class="chip" data-filter="rapide">Rapides</button><button class="chip" data-filter="gamelle">Gamelles</button><button class="chip" data-filter="dessert">Desserts</button></div>
         <div class="recipe-grid" id="recipe-grid"></div>
       </section>
 
@@ -59,13 +59,12 @@
   </div>
 
   <dialog id="meal-dialog"><form method="dialog" id="meal-form"><button class="dialog-close" value="cancel" aria-label="Fermer">×</button><p class="eyebrow">Planifier un repas</p><h2>Choisir une recette</h2><label>Jour<select id="meal-day"></select></label><label>Moment<select id="meal-slot"><option value="midi">Midi</option><option value="soir">Soir</option></select></label><label>Recette<select id="meal-recipe"></select></label><div class="dialog-actions"><button class="button" value="cancel">Annuler</button><button class="button primary" value="default" id="save-meal">Ajouter</button></div></form></dialog>
-  <dialog id="recipe-dialog"><form method="dialog" id="recipe-form"><button class="dialog-close" value="cancel" aria-label="Fermer">×</button><p class="eyebrow">Nouvelle recette</p><h2>Un plat pour la famille</h2><label>Nom<input required id="recipe-name" placeholder="Ex. gratin de pâtes"></label><label>Coût estimé (€)<input required id="recipe-price" type="number" min="0" step="0.5" value="10"></label><label>Temps (minutes)<input required id="recipe-time" type="number" min="5" value="35"></label><label>Catégorie<select id="recipe-tag"><option value="xxl">XXL & restes</option><option value="rapide">Rapide</option><option value="gamelle">Gamelle</option></select></label><div class="dialog-actions"><button class="button" value="cancel">Annuler</button><button class="button primary" value="default">Créer</button></div></form></dialog>
+  <dialog id="recipe-dialog"><form method="dialog" id="recipe-form"><button class="dialog-close" value="cancel" aria-label="Fermer">×</button><p class="eyebrow">Nouvelle recette</p><h2>Un plat pour la famille</h2><label>Nom<input required id="recipe-name" placeholder="Ex. gratin de pâtes"></label><label>Coût estimé (€)<input required id="recipe-price" type="number" min="0" step="0.5" value="10"></label><label>Temps (minutes)<input required id="recipe-time" type="number" min="5" value="35"></label><label>Catégorie<select id="recipe-tag"><option value="xxl">XXL & restes</option><option value="rapide">Rapide</option><option value="gamelle">Gamelle</option><option value="dessert">Dessert</option></select></label><div class="dialog-actions"><button class="button" value="cancel">Annuler</button><button class="button primary" value="default">Créer</button></div></form></dialog>
   <script src="app.js"></script>
   <script src="generator.js"></script>
   <script src="recipe-editor.js"></script>
   <script src="planner-editor.js"></script>
   <script src="recipe-search.js"></script>
-  <script src="pleasure-recipes.js"></script>
   <script src="calendar-navigation.js"></script>
   <script src="sync.js"></script>
 </body>
