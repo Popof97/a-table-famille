@@ -27,5 +27,10 @@ for (const file of files) {
   if (excluded.has(file.name)) continue;
   await cp(file.name, `${output}/${file.name}`, { recursive: true });
 }
-await mkdir(`${output}/server`, { recursive: true });
-await writeFile(`${output}/server/index.js`, await readFile('worker.js', 'utf8'));
+try {
+  const worker = await readFile('worker.js', 'utf8');
+  await mkdir(`${output}/server`, { recursive: true });
+  await writeFile(`${output}/server/index.js`, worker);
+} catch (error) {
+  if (error.code !== 'ENOENT') throw error;
+}
